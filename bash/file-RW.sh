@@ -1,19 +1,15 @@
 #!/bin/bash
-
 echo 'bash begin!'  #单引号或者双引号都是字符串
-echo "bash begin2!"
 
-#读取文件内容到变量中
-filecontent=`cat ./file-RW.sh`
-echo $filecontent
+#方法一，指定换行符读取,这种方法会把空行忽略掉的！！！！
+IFS="
+"
+for LINE in `cat ./file-RW.sh`; do echo $LINE; done
 
-#取得文件内容的每一行
-for fileline in $filecontent 
-do                        #这个do必须换行，不能接在上一行
-  echo $fileline
-done
+#方法二，文件重定向给read处理：
+cat ./file-RW.sh | while read LINE; do echo $LINE; done
 
-#写内容到文件中
-echo $filecontent > test.txt
-echo $filecontent >> test-append.txt
+#方法三，用read读取文件重定向：
+while read LINE; do echo $LINE; done <./file-RW.sh
+
 
