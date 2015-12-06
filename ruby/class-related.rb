@@ -1,6 +1,3 @@
-#ruby 黑科技
-
-
 #Module是一些函数和常量的集合
 module MMM
   include Math #包含另一个模块可以那个模块中的实例方法和常量变成自己的
@@ -15,10 +12,8 @@ module MMM
 end
 
 
-
 class AAA
-
-  puts "begin define AAA"
+  puts "begin define AAA" #ruby解释器是顺序执行下去的，这一行会打印出来，就算下面没有AAA.new
 
   include MMM
 
@@ -52,17 +47,6 @@ class AAA
     end
 
   end
-
-  def AAA.ppp  #可以在外部访问
-    return "AAA.ppp"
-  end
-
-  def self.pp #不可以在外部访问,只能在从这开始的以下,到类定义结束能访问
-    return "self.pp"
-  end
-
-  puts self.pp
-  puts AAA.pp
 
   puts "end of AAA definition\n\n"
 end

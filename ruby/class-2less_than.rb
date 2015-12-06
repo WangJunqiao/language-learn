@@ -29,3 +29,37 @@ end
 
 BBB.foo
 # BBB.new.foo   =>  undefined method `foo'
+
+
+
+
+
+
+
+
+
+
+#-----------------Advanced-------------------
+puts "\n\n-----------------Advanced------------------\n\n"
+module Math
+  module ClassMethods
+    def calcAdd a, b
+      a + b
+    end
+  end
+
+  def self.included(base) #当Math被include的时候，把ClassMethods包含进去，作为base的类方法(class method)
+    puts "base = #{base}"
+    puts "self = #{self}"
+    class << base
+      include ClassMethods
+    end
+  end
+end
+
+class Utility
+  include Math
+
+  puts calcAdd 5, 6   #因为是类方法，所以可以直接用
+end
+
