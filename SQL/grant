@@ -1,0 +1,4 @@
+1, This statement will grant ALL permissions to root with a password of 'password' when they connect from everywhere in the Internet
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION;
+
+
