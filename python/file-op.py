@@ -19,3 +19,7 @@ lines = fr.readlines() # read all lines as an array
 print lines
 
 
+#iterate all lines
+for line in io.open('aaa.txt', 'r'):
+    print line
+
