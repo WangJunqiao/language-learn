@@ -1,18 +1,13 @@
 # this is comment mark
 import sys
 
-def foo(debug = True):    #function, default argu
+def foo(debug = True):    #函数定义，默认参数
     "this is a document of foo"
     return True
 foo()
 
 i = int(raw_input('input a integer: ')) # input
 print 'the square value is : %d' % (i * i)
-
-file1 = open('D:/aa.txt', 'w')   #file manipulate
-print >>file1, 'this is a file, named file1'
-file1.close()
-
 
 print 'integer: %d, my name is %s\n' % (10, 'dd') #printf format
 
@@ -25,8 +20,8 @@ print 1 ^ 2 #
 print 1 or (not 1) and 0 #logic operators
 
 str = 'python'
-print str * 3 #duplicate
-# str[3] = '3' can't be modified!!!
+print str * 3 # 
+# str[3] = '3' 错误！string是不能修改的
 print str[0]
 print str[0 : 2] #[start, end)
 print str[1 : ]
