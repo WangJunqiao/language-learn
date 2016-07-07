@@ -1,3 +1,7 @@
+# A << B 这个符号的作用其实就是把A里面的东西都混入到B里面
+
+
+
 class AAA
   def info
     puts "aaa"

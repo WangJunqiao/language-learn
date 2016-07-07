@@ -9,7 +9,7 @@ foo()
 i = int(raw_input('input a integer: ')) # input
 print 'the square value is : %d' % (i * i)
 
-print 'integer: %d, my name is %s\n' % (10, 'dd') #printf format
+print 'integer: %d, my name is %s\n' % (10, 'dd')  # printf format
 
 
 print 'cube 2: %d' % (2 ** 3)    #pow
