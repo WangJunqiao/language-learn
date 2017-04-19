@@ -1,0 +1,69 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+sourceCompatibility = 1.7
+version = '1.0'
+
+mainClassName = "dd.Main"
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.4'
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+            exclude '**/Test*.java'
+        }
+        resources {
+            srcDir 'resources'
+            include 'META-INF/aaa.xml'
+            include 'META-INF/services/**'
+            exclude '**/dd.Plugin*'
+        }
+    }
+    test {
+        java {
+            srcDir 'src'
+            include '**/Test*.java'
+        }
+        resources {
+            srcDir 'resources'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
