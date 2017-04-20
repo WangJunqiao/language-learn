@@ -1,0 +1,82 @@
+every thing is object, the root object is Any, second layer is AnyVal and AnyRef(similar to Object in java)
+
+compile:
+    scalac [source file]
+
+run:
+    scala [class file name]
+
+variable:
+    var myVar : String = "foo";
+    or
+    var myVar = "foo";
+
+const variable:
+    val myVal : Int = 5;
+
+function declare:
+    def functionName ([list of parameters]) : [return type]
+
+function definition:
+    def functionName ([list of parameters]) : [return type] = { // has an equal symbol !!!!!!!!!!
+       function body
+       return [expr]
+    }
+
+closure:
+    val multiplier = (i:Int) => i * 10
+    multiplier(5); // output 50
+
+array:
+    var z:Array[String] = new Array[String](3)
+    or
+    var z = new Array[String](3)
+    z(0) = "dd"; //z[0] is not correct!!!
+
+multi-demension array:
+    var myMatrix = ofDim[Int](3,3) // need to import Array._, _ means all
+    myMatrix(1)(2) = 99;
+
+class:
+    class AAA(xc: Int, yc: Int) {
+        var x = xc;
+        var y = yc;
+
+        //method definitions...
+    }
+    var aaa = new AAA(10, 20); // create an instance
+
+hierarchy:
+    class Location(override val xc: Int, override val yc: Int, val zc :Int) extends Yiibai(xc, yc) {
+        var z: Int = zc  //x, y is also visiable.
+
+        //method definitions
+    }
+
+singleton: replace class with object!!!
+    object Test { //Test is singleton
+        def main(args: Array[String]) {
+            println ("hello");
+        }
+    }
+
+trait: //similar to java abstract class
+    trait Equal {
+      def isEqual(x: Any): Boolean
+      def isNotEqual(x: Any): Boolean = !isEqual(x)
+    }
+    class Yiibai() extends Equal {
+        def isEqual(obj: Any) =
+            obj.isInstanceOf[Yiibai] &&
+            obj.asInstanceOf[Yiibai].x == x
+    }
+
+for loop:
+    for (var a <- 1 to 10) {
+        println(a); // print 1 ... 10
+    }
+    for (var a <- 1 until 10) {} // not include 10
+    for (var a <- 1 to 3; var b <- 1 to 3) {}; // similar to java: for (i = 1; i <= 3; i ++) for (j = 1; j <= 3; j ++) {}
+    for (var a <- List) {}; // iterate all element in List/set/array
+    for (var a <- List
+        if a != 3; if a < 8) {} // a != 3 && a < 8           for with filters!!
