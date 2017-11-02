@@ -1,0 +1,15 @@
+https://nas.console.aliyun.com/?spm=5176.8466010.0.0.3175bb8aiZMEGA#/ofs/detail/112a54adb4/info/
+
+$python /apsara/deploy/ocm_cmd.py --host=ocm.nas-cn-beijing.aliyuncs.com --access_id=bdut3uaoeah3x0nas --access_key=cWN3OHB4cTYxNAS1bDdz03FvxWI --region=cn-beijing --cmd=list_volume --user=all | grep 112a54adb4
+user:1241392231042436, volume:112a54adb4, fsid:smb_ba28ecaa-467e-448d-82a2-b9784e910598, quota size:10485760GB
+
+kvengine : querypart nas smb_ba28ecaa-467e-448d-82a2-b9784e910598#1241392231042436
+PartId                 PartSize  CellCount  FileCount  ReadCount WriteCount Directory  StartKey   EndKey     SplitRow   Server
+46531768006921305      10585657      51172          9          0          0 data/46531768006921305 smb_b8e38e38 smb_bda12f67            tcp://11.218.141.4:10280
+
+
+kvengine : querypart nas smb_ba28ecaa-467e-448d-82a2-b9784e910598#1241392231042436
+PartId                 PartSize  CellCount  FileCount  ReadCount WriteCount Directory  StartKey   EndKey     SplitRow   Server
+94794191106386              413          4          1          0          0 data/94794191106386 smb_b8e38e38 smb_bc7d7ba0-e2ce-4759-bdfb-d1bc231af043#1349307753625989#173d849f45            tcp://11.218.141.66:10280
+
+
