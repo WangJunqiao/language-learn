@@ -34,6 +34,7 @@ public class LockTest {
                 try {
                     lock.lock();
                     System.out.println("我在等一个新信号"+this.currentThread().getName());
+                    Thread.sleep(10000);
                     condition.await();
 
                 } catch (InterruptedException e) {
@@ -58,8 +59,11 @@ public class LockTest {
                 try {
                     lock.lock();
                     System.out.println("我拿到锁"+this.currentThread().getName());
+                    Thread.sleep(10000);
                     condition.signalAll();
                     System.out.println("我发出了一个信号："+this.currentThread().getName());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 } finally{
                     lock.unlock();
                 }
